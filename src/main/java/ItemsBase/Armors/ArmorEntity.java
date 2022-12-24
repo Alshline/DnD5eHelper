@@ -3,9 +3,6 @@ package ItemsBase.Armors;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-
-@Entity
 public class ArmorEntity {
     @Getter
     private long armor_id;

@@ -1,13 +1,12 @@
-package com.dndhelper.dnd5ehelper;
+package App;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DnD5eHelperApplication {
+public class SpringBootJspApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DnD5eHelperApplication.class, args);
+        SpringApplication.run(SpringBootJspApplication.class, args);
     }
-
 }

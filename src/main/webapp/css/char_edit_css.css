@@ -1,0 +1,25 @@
+.main_div {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+.main_div_rows{
+    display: table-row;
+}
+.editing_left{
+    display: table-cell;
+    width: 20%;
+    vertical-align: top;
+    padding: 0;
+}
+.editing_middle{
+    display: table-cell;
+    width: 15%;
+    vertical-align: top;
+}
+.editing_right{
+    display: table-cell;
+    width: 60%;
+    vertical-align: top;
+    padding: 0;
+}

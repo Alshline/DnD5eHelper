@@ -1,21 +1,15 @@
 package ItemsBase;
 
 import ItemsBase.Armors.ArmorEntity;
-import ItemsBase.Mapper;
 import ItemsBase.Weapons.WeaponEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public class ItemsRepository implements ItemsRepositoryInterface {
 
-    @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @Autowired
     Mapper mapper;
 
     public ItemsRepository(JdbcTemplate jdbcTemplate) {
@@ -145,3 +139,4 @@ public class ItemsRepository implements ItemsRepositoryInterface {
     }
 
 }
+

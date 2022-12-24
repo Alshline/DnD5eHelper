@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: Spurius
+Build-Jdk: Oracle OpenJDK version 17
+Implementation-Title: DnD5eHelper
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.DnDHelper
+Main-Class: ${start-class}
+

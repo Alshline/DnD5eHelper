@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Employee Management System</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/char_edit_css.css">
+</head>
+
+<body>
+<div class="container">
+  <h1>Editing Management</h1>
+  <hr>
+
+  <form action="#" th:action="@{/save}" th:object="${employee}" method="POST">
+    <div class="main_div">
+      <div class="main_div_rows">
+        <div class="editing_left">
+          <h>Strength</h>
+          <div>
+            <input type="text" th:field="*{strength}" class="mb-4 col-1" readonly>
+            <input type="text" th:field="*{strength_mod}" class="mb-4 col-1" readonly>
+            <button id="str-plus">+</button>
+            <button id="str-minus">-</button>
+          </div>
+          <h>Dexterity</h>
+          <div>
+            <input type="text" th:field="*{dexterity}" class="mb-4 col-1" readonly>
+            <input type="text" th:field="*{dexterity_mod}" class="mb-4 col-1" readonly>
+            <button id="dex-plus">+</button>
+            <button id="dex-minus">-</button>
+          </div>
+          <h>Constitution</h>
+          <div>
+            <input type="text" th:field="*{constitution}" class="mb-4 col-1" readonly>
+            <input type="text" th:field="*{constitution_mod}" class="mb-4 col-1" readonly>
+            <button id="con-plus">+</button>
+            <button id="con-minus">-</button>
+          </div>
+          <h>Intelligence</h>
+          <div>
+            <input type="text" th:field="*{intelligence}" class="mb-4 col-1" readonly>
+            <input type="text" th:field="*{intelligence_mod}" class="mb-4 col-1" readonly>
+            <button id="int-plus">+</button>
+            <button id="int-minus">-</button>
+          </div>
+          <h>Wisdom</h>
+          <div>
+            <input type="text" th:field="*{wisdom}" class="mb-4 col-1" readonly>
+            <input type="text" th:field="*{wisdom_mod}" class="mb-4 col-1" readonly>
+            <button id="int-plus">+</button>
+            <button id="int-minus">-</button>
+          </div>
+          <h>Charisma</h>
+          <div>
+            <input type="text" th:field="*{charisma}" class="mb-4 col-1" readonly>
+            <input type="text" th:field="*{charisma_mod}" class="mb-4 col-1" readonly>
+            <button id="chr-plus">+</button>
+            <button id="chr-minus">-</button>
+          </div>
+
+        </div>
+        <div class="editing_middle">
+          <div>
+            <h>Acrobatics</h>
+            <div>
+              <input type="text" th:field="*{acrobatics}" class="mb-4 col-1" readonly>
+            </div>
+            <h>Animal handling</h>
+            <div>
+              <input type="text" th:field="*{animal_handling}" class="mb-4 col-1" readonly>
+            </div>
+            <h>Arcana</h>
+            <div>
+              <input type="text" th:field="*{arcana}" class="mb-4 col-1" readonly>
+            </div>
+            <h>Athletics</h>
+            <div>
+              <input type="text" th:field="*{athletics}" class="mb-4 col-1" readonly>
+            </div>
+            <h>Deception</h>
+            <div>
+              <input type="text" th:field="*{deception}" class="mb-4 col-1" readonly>
+            </div>
+            <h>History</h>
+            <div>
+              <input type="text" th:field="*{history}" class="mb-4 col-1" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="editing_middle">
+          <h>Insight</h>
+          <div>
+            <input type="text" th:field="*{insight}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Intimidation</h>
+          <div>
+            <input type="text" th:field="*{intimidation}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Investigation</h>
+          <div>
+            <input type="text" th:field="*{investigation}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Medicine</h>
+          <div>
+            <input type="text" th:field="*{medicine}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Nature</h>
+          <div>
+            <input type="text" th:field="*{nature}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Perception</h>
+          <div>
+            <input type="text" th:field="*{perseption}" class="mb-4 col-1" readonly>
+          </div>
+        </div>
+        <div class="editing_middle">
+          <h>Performance</h>
+          <div>
+            <input type="text" th:field="*{performance}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Persuation</h>
+          <div>
+            <input type="text" th:field="*{persuation}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Religion</h>
+          <div>
+            <input type="text" th:field="*{religion}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Sleight of hand</h>
+          <div>
+            <input type="text" th:field="*{sleight_of_hand}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Stealth</h>
+          <div>
+            <input type="text" th:field="*{stealth}" class="mb-4 col-1" readonly>
+          </div>
+          <h>Survival</h>
+          <div>
+            <input type="text" th:field="*{survival}" class="mb-4 col-1" readonly>
+          </div>
+        </div>
+        <div class="editing_right"> </div>
+      </div>
+    </div>
+  </form>
+</div>
+<hr>
+<div><button type="submit" class="btn btn-info col-2">Save Employee</button></div>
+<a th:href="@{/}"> Back to Employee List</a>
+</div>
+</body>
+</html>
+</html>
