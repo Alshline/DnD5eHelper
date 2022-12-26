@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Editor</title>
+</head>
+<body>
+<form action="#" th:action="@{/save}" th:object="${Character}" method="POST">
+  <div class = "table">
+    <input type="text" id="str" value="10" size="4" th:field="*{strength}" readonly>
+    <input type="text" id="str" value="10" size="4" th:field="*{strength}" readonly>
+  </div>
+</form>
+</body>
+</html>

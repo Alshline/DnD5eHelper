@@ -137,6 +137,5 @@ public class ItemsRepository implements ItemsRepositoryInterface {
     public Integer deleteFromWeaponsById(Integer weapon_id) {
         return jdbcTemplate.update("delete from weapons where weapon_id = ?", weapon_id);
     }
-
 }
 
