@@ -19,9 +19,9 @@ public class Role {
 
     @Getter
     @Setter
-    private String name;
+    private Roles_Enum name;
 
-    @Setter
-    @Getter
-    private Set<User> users;
+    public Role (Roles_Enum name){
+        this.name = name;
+    }
 }

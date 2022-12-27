@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -36,13 +35,6 @@ public class User {
     private String password;
 
     @NotBlank
-    @Getter
-    @Setter
-    @Size(max = 30)
-    @Transient
-    private String passwordConfirm;
-
-    @NotBlank
     @Size(max = 40)
     @Email
     @Getter
@@ -58,5 +50,16 @@ public class User {
         this.username = username;
         this.password = password;
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }
