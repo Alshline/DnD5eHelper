@@ -1,41 +1,61 @@
 package Security.Controllers;
 
 import Security.Entities.User;
-import Security.Services.UserDetailsServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import Security.Services.SecurityService;
+import Security.Services.UserService;
+import Security.Validator.UserValidator;
 import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class LoginPageController {
+    @Autowired
+    private UserService userService;
 
     @Autowired
-    private UserDetailsServiceImpl userDetailsService;
+    private SecurityService securityService;
 
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();
-        User userExists = userDetailsService.findUserByEmail(user.getEmail());
-        if (userExists != null) {
-            bindingResult
-                    .rejectValue("email", "error.user",
-                            "There is already a user registered with the username provided");
-        }
+    @Autowired
+    private UserValidator userValidator;
+
+    @GetMapping("/registration")
+    public String registration(Model model) {
+        model.addAttribute("userForm", new User());
+
+        return "registration";
+    }
+
+    @PostMapping("/registration")
+    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+        userValidator.validate(userForm, bindingResult);
+
         if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("signup");
-        } else {
-
-            //Why no arg constructor need
-            userDetailsService.saveUser(user, "PLAYER");
-            modelAndView.addObject("successMessage", "User has been registered successfully");
-            modelAndView.addObject("user", new User());
-            modelAndView.setViewName("login");
+            return "registration";
         }
-        return modelAndView;
+
+        userService.save(userForm);
+
+        securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
+
+        return "redirect:/welcome";
+    }
+
+    @GetMapping("/login")
+    public String login(Model model, String error, String logout) {
+        if (error != null)
+            model.addAttribute("error", "Your username and password is invalid.");
+
+        if (logout != null)
+            model.addAttribute("message", "You have been logged out successfully.");
+
+        return "login";
+    }
+
+    @GetMapping({"/", "/welcome"})
+    public String welcome(Model model) {
+        return "welcome";
     }
 }
