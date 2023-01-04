@@ -1,7 +1,7 @@
-package ItemsBase;
+package _OLD;
 
-import ItemsBase.Armors.ArmorEntity;
-import ItemsBase.Weapons.WeaponEntity;
+import ItemsBase.Entities.ArmorEntity;
+import ItemsBase.Entities.WeaponEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
