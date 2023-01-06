@@ -31,7 +31,7 @@ public class WeaponEntity {
     @Getter
     @Setter
     @Column(name = "damage")
-    private Double damage;
+    private String damage;
 
     @Getter
     @Setter
@@ -58,16 +58,14 @@ public class WeaponEntity {
     @Column(name = "weapon_type")
     private String weapon_type;
 
-    public WeaponEntity(Long weapon_id,
-                        String name,
+    public WeaponEntity(String name,
                         Integer cost,
-                        Double damage,
+                        String damage,
                         String damage_modifier,
                         Integer weight,
                         String properties,
                         Integer author_id,
                         String weapon_type) {
-        this.weapon_id = weapon_id;
         this.name = name;
         this.cost = cost;
         this.damage = damage;

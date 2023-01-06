@@ -18,7 +18,6 @@ public class Mapper implements RowMapper {
         String tableName = resultSetMetaData.getTableName(1);
         if (tableName.equals("armors")) {
             return new ArmorEntity(
-                    resultSet.getLong("armor_id"),
                     resultSet.getString("name"),
                     resultSet.getInt("cost"),
                     resultSet.getInt("armor_class"),
@@ -30,10 +29,9 @@ public class Mapper implements RowMapper {
                     resultSet.getInt("author_id"));
         } else if (tableName.equals("weapons")) {
             return new WeaponEntity(
-                    resultSet.getLong("weapon_id"),
                     resultSet.getString("name"),
                     resultSet.getInt("cost"),
-                    resultSet.getDouble("damage"),
+                    resultSet.getString("damage"),
                     resultSet.getString("damage_modifier"),
                     resultSet.getInt("weight"),
                     resultSet.getString("properties"),

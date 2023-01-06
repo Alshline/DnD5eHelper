@@ -1,7 +1,6 @@
-package JSoupScrapper;
+package SeleniumScraper;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -37,7 +36,28 @@ public class Scraper {
         //weapons --> weapon_type
         System.out.println(weapon_typeElement.getText());
 
+        WebElement cost_Element = driver.findElementByXPath("//*[@id=\"container\"]/div/div/div[2]/div/div[2]/div/div[2]/div[1]");
+        //weapons --> cost
+        String cost = cost_Element.getText().trim().replaceAll("[^0-9]", "");
+        System.out.println(cost);
 
+        WebElement weight_Element = driver.findElementByXPath("//*[@id=\"container\"]/div/div/div[2]/div/div[2]/div/div[2]/div[3]");
+        //weapons --> weight
+        String weight = weight_Element.getText().trim().replaceAll("[^0-9]", "");
+        System.out.println(weight);
+
+        WebElement damage_Element = driver.findElementByXPath("//*[@id=\"container\"]/div/div/div[2]/div/div[2]/div/div[2]/div[2]");
+        //weapons --> damage, damage_modifier
+        String damageP = damage_Element.getText().trim();
+        String damage = damageP.substring(damageP.indexOf('к')-2,damageP.indexOf('к')+2).trim();
+        System.out.println(damage);
+        String damage_modifier = damageP.substring(damageP.lastIndexOf(" "),damageP.length()).trim();
+        System.out.println(damage_modifier);
+
+        WebElement properties_typeElement = driver.findElementByClassName("content-padding");
+        //weapons --> properties
+        String prop = properties_typeElement.getText().trim();
+        System.out.println(prop);
 
         driver.quit();
 

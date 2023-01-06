@@ -8,7 +8,6 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "Armors")
 public class ArmorEntity {
@@ -64,6 +63,26 @@ public class ArmorEntity {
     @Setter
     @Column(name = "author_id")
     private Integer author_id;
+
+    public ArmorEntity(String name,
+                       Integer cost,
+                       Integer armor_class,
+                       String armor_modifier,
+                       Integer strength_require,
+                       String stealth_modifier,
+                       Integer weight,
+                       String properties,
+                       Integer author_id) {
+        this.name = name;
+        this.cost = cost;
+        this.armor_class = armor_class;
+        this.armor_modifier = armor_modifier;
+        this.strength_require = strength_require;
+        this.stealth_modifier = stealth_modifier;
+        this.weight = weight;
+        this.properties = properties;
+        this.author_id = author_id;
+    }
 
     @Override
     public String toString() {
